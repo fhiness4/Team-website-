@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Mavericks | Freelancer Collective</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #ffffff;
+            --accent: #ff0000;
+        }
+        
+        .dark {
+            --primary: #ffffff;
+            --secondary: #000000;
+            --accent: #ff0000;
+        }
+        
+        body {
+            background-color: var(--secondary);
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary);
+        }
+        
+        .bg-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .text-primary {
+            color: var(--primary);
+        }
+        
+        .text-secondary {
+            color: var(--secondary);
+        }
+        
+        .border-primary {
+            border-color: var(--primary);
+        }
+        
+        .accent {
+            color: var(--accent);
+        }
+        
+        .bg-accent {
+            background-color: var(--accent);
+        }
+        
+        .border-accent {
+            border-color: var(--accent);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+        }
+        
+        .service-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #ff0000, #ff6666);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="fixed w-full z-50 bg-secondary bg-opacity-90 backdrop-blur-sm border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold">
+                        <span class="text-red-600">D</span>igital 
+                        <span class="text-red-600">M</span>avericks
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-primary">Home</a>
+                    <a href="#services" class="nav-link text-primary">Services</a>
+                    <a href="#team" class="nav-link text-primary">Team</a>
+                    <a href="#portfolio" class="nav-link text-primary">Portfolio</a>
+                    <a href="#contact" class="nav-link text-primary">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full focus:outline-none">
+                        <i class="fas fa-moon text-primary"></i>
+                    </button>
+                    <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+                        <i class="fas fa-bars text-primary text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-secondary border-t border-gray-800">
+            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                <a href="#home" class="nav-link text-primary">Home</a>
+                <a href="#services" class="nav-link text-primary">Services</a>
+                <a href="#team" class="nav-link text-primary">Team</a>
+                <a href="#portfolio" class="nav-link text-primary">Portfolio</a>
+                <a href="#contact" class="nav-link text-primary">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20">
+        <div class="container mx-auto px-6 py-20">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 fade-in">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        We Are <span class="gradient-text">Digital Mavericks</span>
+                    </h1>
+                    <p class="text-xl mb-8 text-gray-600 dark:text-gray-300">
+                        A collective of top-tier freelancers and digital marketers delivering exceptional results for your business.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-md font-medium transition duration-300">
+                            Get Started
+                        </a>
+                        <a href="#services" class="border border-primary text-primary px-6 py-3 rounded-md font-medium transition duration-300 hover:bg-primary hover:text-secondary">
+                            Our Services
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 fade-in">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Team working together" 
+                         class="rounded-lg shadow-2xl border-4 border-red-600">
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center fade-in">
+                <p class="mb-4 text-gray-600 dark:text-gray-300">Scroll to explore</p>
+                <div class="scroll-indicator">
+                    <i class="fas fa-chevron-down text-2xl text-red-600"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="fade-in">
+                    <div class="text-4xl md:text-5xl font-bold text-red-600 mb-2">150+</div>
+                    <div class="text-gray-600 dark:text-gray-300">Projects Completed</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-4xl md:text-5xl font-bold text-red-600 mb-2">50+</div>
+                    <div class="text-gray-600 dark:text-gray-300">Happy Clients</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-4xl md:text-5xl font-bold text-red-600 mb-2">12</div>
+                    <div class="text-gray-600 dark:text-gray-300">Team Members</div>
+                </div>
+                <div class="fade-in">
+                    <div class="text-4xl md:text-5xl font-bold text-red-600 mb-2">5</div>
+                    <div class="text-gray-600 dark:text-gray-300">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our <span class="text-red-600">Services</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+                    We offer a comprehensive range of digital marketing and creative services to help your business thrive online.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card fade-in bg-secondary p-8 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 transition duration-300">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Digital Strategy</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Comprehensive digital roadmaps tailored to your business goals and target audience.
+                    </p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card fade-in bg-secondary p-8 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 transition duration-300">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">SEO Optimization</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Improve your search rankings and organic traffic with our proven SEO strategies.
+                    </p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card fade-in bg-secondary p-8 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 transition duration-300">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-ad"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">PPC Advertising</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Targeted pay-per-click campaigns that maximize ROI and drive qualified leads.
+                    </p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card fade-in bg-secondary p-8 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 transition duration-300">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Graphic Design</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Stunning visuals that communicate your brand message and captivate your audience.
+                    </p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card fade-in bg-secondary p-8 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 transition duration-300">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Web Development</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Custom websites and web applications built for performance, security, and scalability.
+                    </p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card fade-in bg-secondary p-8 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 transition duration-300">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Analytics & Reporting</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Data-driven insights to measure performance and optimize your digital presence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Meet The <span class="text-red-600">Team</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+                    Our collective of talented professionals brings diverse skills and expertise to every project.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="team-card fade-in bg-secondary p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 transition duration-300">
+                    <div class="w-full h-64 overflow-hidden rounded-md mb-4">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Sarah Johnson" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold">Sarah Johnson</h3>
+                    <p class="text-red-600 mb-3">SEO Specialist</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        With 8 years in search engine optimization, Sarah knows how to get your site ranking.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-red-600">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-red-600">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-red-600">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-card fade-in bg-secondary p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 transition duration-300">
+                    <div class="w-full h-64 overflow-hidden rounded-md mb-4">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                             alt="Michael Chen" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold">Michael Chen</h3>
+                    <p class="text-red-600 mb-3">PPC Expert</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Michael manages million-dollar ad budgets with precision and data-driven strategies.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-red-600">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-red-600">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-red-600">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-card fade-in bg-secondary p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 transition duration-300">
+                    <div class="w-full h-64 overflow-hidden rounded-md mb-4">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="David Rodriguez" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold">David Rodriguez</h3>
+                    <p class="text-red-600 mb-3">Web Developer</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Full-stack developer specializing in high-performance, scalable web applications.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-red-600">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-red-600">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-red-600">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="team-card fade-in bg-secondary p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 transition duration-300">
+                    <div class="w-full h-64 overflow-hidden rounded-md mb-4">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" 
+                             alt="Emily Wilson" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold">Emily Wilson</h3>
+                    <p class="text-red-600 mb-3">Creative Director</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Emily leads our creative team with innovative design concepts and brand strategies.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-red-600">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-red-600">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-red-600">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in">
+                <a href="#contact" class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-6 py-3 rounded-md font-medium transition duration-300 inline-block">
+                    Work With Our Team
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our <span class="text-red-600">Portfolio</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+                    A selection of our recent work that showcases our expertise across various industries.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Portfolio Item 1 -->
+                <div class="fade-in group relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="E-commerce Website" 
+                         class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300 p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">E-commerce Platform</h3>
+                        <p class="text-gray-300 text-center mb-4">
+                            Complete redesign and SEO optimization for a fashion retailer resulting in 120% revenue growth.
+                        </p>
+                        <a href="#" class="text-red-400 hover:text-red-300 font-medium">View Case Study →</a>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="fade-in group relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="SaaS Dashboard" 
+                         class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300 p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">SaaS Dashboard</h3>
+                        <p class="text-gray-300 text-center mb-4">
+                            Custom analytics dashboard for a B2B software company with real-time data visualization.
+                        </p>
+                        <a href="#" class="text-red-400 hover:text-red-300 font-medium">View Case Study →</a>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="fade-in group relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8b3885?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                         alt="Brand Identity" 
+                         class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300 p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Brand Identity</h3>
+                        <p class="text-gray-300 text-center mb-4">
+                            Complete brand overhaul for a tech startup including logo, style guide, and marketing materials.
+                        </p>
+                        <a href="#" class="text-red-400 hover:text-red-300 font-medium">View Case Study →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in">
+                <a href="#" class="border-2 border-primary text-primary hover:bg-primary hover:text-secondary px-6 py-3 rounded-md font-medium transition duration-300 inline-block">
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Client <span class="text-red-600">Testimonials</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+                    Don't just take our word for it. Here's what our clients have to say about working with us.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="fade-in bg-secondary p-8 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl mr-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        "Working with Digital Mavericks transformed our online presence. Our organic traffic increased by 300% in just six months."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Lisa Thompson" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold">Lisa Thompson</h4>
+                            <p class="text-sm text-gray-500">CEO, Thompson & Co.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="fade-in bg-secondary p-8 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl mr-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        "Their PPC expertise helped us reduce our customer acquisition costs by 40% while increasing conversions. Highly recommended!"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                             alt="James Wilson" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold">James Wilson</h4>
+                            <p class="text-sm text-gray-500">Marketing Director, Wilson Enterprises</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="fade-in bg-secondary p-8 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl mr-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        "The website they built for us is not only beautiful but also performs exceptionally well. Our bounce rate decreased by 60%."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" 
+                             alt="Maria Garcia" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold">Maria Garcia</h4>
+                            <p class="text-sm text-gray-500">Founder, Garcia Boutique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In <span class="text-red-600">Touch</span></h2>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Ready to take your digital presence to the next level? Contact us today for a free consultation.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="fade-in">
+                        <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-red-600 mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Our Office</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">123 Digital Street, Suite 456<br>San Francisco, CA 94107</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-red-600 mr-4 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Email Us</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">hello@digitalmavericks.com<br>support@digitalmavericks.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-red-600 mr-4 mt-1">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Call Us</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">+1 (555) 123-4567<br>Mon-Fri, 9am-5pm PST</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-medium mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-red-600 hover:text-white hover:border-red-600 transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-red-600 hover:text-white hover:border-red-600 transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-red-600 hover:text-white hover:border-red-600 transition duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-red-600 hover:text-white hover:border-red-600 transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fade-in">
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-1">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 bg-secondary">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium mb-1">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 bg-secondary">
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-sm font-medium mb-1">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 bg-secondary">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium mb-1">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 bg-secondary"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-md font-medium transition duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-red-600 text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 fade-in">Subscribe to Our Newsletter</h2>
+                <p class="mb-8 fade-in">Get the latest digital marketing tips and insights delivered straight to your inbox.</p>
+                
+                <form class="max-w-md mx-auto flex fade-in">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-md focus:outline-none text-gray-900">
+                    <button type="submit" class="bg-black text-white px-6 py-3 rounded-r-md font-medium hover:bg-gray-900 transition duration-300">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">
+                        <span class="text-red-600">D</span>igital 
+                        <span class="text-red-600">M</span>avericks
+                    </h3>
+                    <p class="text-gray-400">
+                        A collective of top-tier freelancers and digital marketers delivering exceptional results for your business.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-white transition duration-300">Team</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-white transition duration-300">Portfolio</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Digital Strategy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">SEO Optimization</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">PPC Advertising</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Web Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Graphic Design</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Connect</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-red-600 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-red-600 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-red-600 transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-red-600 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">hello@digitalmavericks.com</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Digital Mavericks. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved user preference, if any
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.classList.toggle('dark', currentTheme === 'dark');
+        
+        // Update icon based on current theme
+        updateThemeIcon();
+        
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const theme = html.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+            updateThemeIcon();
+        });
+        
+        function updateThemeIcon() {
+            const icon = themeToggle.querySelector('i');
+            if (html.classList.contains('dark')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+        
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Scroll Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        function checkScroll() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Initial check
+        checkScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', checkScroll);
+        
+        // Form Submission (example)
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+        }
+        
+        // Newsletter Form Submission (example)
+        const newsletterForm = document.querySelector('.bg-red-600 form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                alert(`Thank you for subscribing with ${emailInput.value}!`);
+                emailInput.value = '';
+            });
+        }
+    </script>
+</body>
+</html>
